@@ -212,7 +212,11 @@ h1,h2,h3,h4{font-family:var(--fd);line-height:1.15}
   .cta-box{padding:40px 24px}
   .hero-actions{flex-direction:column;align-items:stretch}
   .hero-actions .btn{justify-content:center}
+  .roadmap-item{padding:20px}
   .roadmap-item h3{font-size:.95rem}
+  .roadmap-dot{left:-39px;width:16px;height:16px;top:24px}
+  .roadmap-timeline{padding-left:40px}
+  .roadmap-line{left:10px}
   .global-mouse-glow{display:none}
   .faq-question{padding:16px 18px;font-size:.87rem}
 }

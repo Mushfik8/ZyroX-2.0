@@ -37,7 +37,7 @@ function DonutChart() {
   }, [])
   return (
     <div className="token-chart">
-      <canvas ref={canvasRef} style={{ width:300, height:300 }} />
+      <canvas ref={canvasRef} style={{ width:300, maxWidth: '100%', height: 'auto', aspectRatio: '1/1' }} />
       <div className="token-center">
         <div className="supply">100B</div>
         <div className="label">Total Supply</div>
