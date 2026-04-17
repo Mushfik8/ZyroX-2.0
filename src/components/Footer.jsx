@@ -1,12 +1,13 @@
+import logoImg from '../assets/logo.png'
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#" className="navbar-logo" style={{ marginBottom: 8 }}>
-              <div className="logo-icon">Z</div>
-              <span>ZyroX</span>
+            <a href="#" className="navbar-logo" style={{ marginBottom: 16 }}>
+              <img src={logoImg} alt="ZyroX Logo" className="logo-img" />
             </a>
             <p>
               A next-gen gaming and DeFi ecosystem on BNB Chain. Building

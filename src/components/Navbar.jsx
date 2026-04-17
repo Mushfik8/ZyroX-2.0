@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import logoImg from '../assets/logo.png'
 
 export default function Navbar({ walletAddress, connectWallet, disconnectWallet }) {
   const [scrolled, setScrolled] = useState(false)
@@ -28,8 +29,7 @@ export default function Navbar({ walletAddress, connectWallet, disconnectWallet 
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
         <div className="container navbar-inner">
           <a href="#" className="navbar-logo">
-            <div className="logo-icon">Z</div>
-            <span>ZyroX</span>
+            <img src={logoImg} alt="ZyroX Logo" className="logo-img" />
           </a>
 
           <div className="navbar-links">
