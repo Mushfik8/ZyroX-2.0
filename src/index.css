@@ -63,7 +63,7 @@ h1,h2,h3,h4{font-family:var(--fd);line-height:1.15}
 .navbar-actions{display:flex;align-items:center;gap:10px}
 .mobile-toggle{display:none;flex-direction:column;gap:5px;background:none;padding:6px}
 .mobile-toggle span{width:22px;height:1.5px;background:var(--t1);border-radius:2px;transition:var(--tr)}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(0,8,20,0.97);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px;backdrop-filter:blur(20px)}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(0,8,20,0.97);z-index:1001;flex-direction:column;align-items:center;justify-content:center;gap:28px;backdrop-filter:blur(20px)}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:1.4rem;font-family:var(--fd);color:var(--t2);transition:var(--tr)}
 .mobile-menu a:hover{color:var(--c1);text-shadow:0 0 20px var(--c1)}
