@@ -1,0 +1,287 @@
+/* ── GAMES SECTION ── */
+.games-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(191,0,255,0.05) 0%, transparent 70%);
+}
+
+/* floating coins bg */
+.coins-bg { position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden }
+.float-coin {
+  position: absolute;
+  font-size: 1.6rem;
+  opacity: 0.12;
+  animation: floatCoin linear infinite;
+  font-family: monospace;
+  font-weight: 700;
+}
+.coin-1{left:5%;top:10%;font-size:2.4rem;animation-duration:14s;animation-delay:0s;color:#ffcc00}
+.coin-2{left:15%;top:60%;font-size:1.8rem;animation-duration:18s;animation-delay:2s;color:#00ffea}
+.coin-3{left:25%;top:80%;font-size:1.4rem;animation-duration:12s;animation-delay:1s;color:#bf00ff}
+.coin-4{left:70%;top:5%;font-size:2rem;animation-duration:16s;animation-delay:3s;color:#ffcc00}
+.coin-5{left:80%;top:50%;font-size:2.6rem;animation-duration:20s;animation-delay:0.5s;color:#00ffea}
+.coin-6{left:90%;top:75%;font-size:1.6rem;animation-duration:13s;animation-delay:4s;color:#ff2d78}
+.coin-7{left:45%;top:15%;font-size:1.2rem;animation-duration:15s;animation-delay:2.5s;color:#39ff14}
+.coin-8{left:55%;top:85%;font-size:2rem;animation-duration:17s;animation-delay:1.5s;color:#ffcc00}
+
+@keyframes floatCoin {
+  0% { transform: translateY(40px) rotate(0deg); opacity:0.06 }
+  20% { opacity: 0.15 }
+  80% { opacity: 0.1 }
+  100% { transform: translateY(-120px) rotate(360deg); opacity:0 }
+}
+
+/* grid */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  position: relative;
+  z-index: 2;
+}
+
+/* card */
+.game-card {
+  background: rgba(0,255,234,0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--card-color), transparent);
+  opacity: 0.7;
+}
+.game-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 10% 0%, var(--card-color) 0%, transparent 60%);
+  opacity: 0.03;
+  pointer-events: none;
+  transition: opacity 0.35s;
+}
+.game-card:hover {
+  border-color: var(--card-color, rgba(0,255,234,0.3));
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 1px var(--card-color, #00ffea)22,
+              0 20px 60px rgba(0,0,0,0.5),
+              0 0 80px rgba(0,255,234,0.05);
+}
+.game-card:hover::after { opacity: 0.07 }
+
+.game-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.game-emoji {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+}
+.game-meta { display:flex; flex-direction:column; align-items:flex-end; gap:6px }
+.game-genre {
+  font-size: .65rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(180,230,255,0.5);
+}
+.game-status {
+  font-size: .68rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.status-live { color: #39ff14; border-color: rgba(57,255,20,0.3); background: rgba(57,255,20,0.07) }
+.status-beta { color: #ffcc00; border-color: rgba(255,204,0,0.3); background: rgba(255,204,0,0.07) }
+.status-coming-soon { color: rgba(180,230,255,0.5); border-color: rgba(180,230,255,0.15); background: rgba(180,230,255,0.04) }
+
+.game-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: .8px;
+}
+.game-desc {
+  font-size: .85rem;
+  color: rgba(180,230,255,0.65);
+  line-height: 1.72;
+  margin-bottom: 16px;
+}
+.game-reward {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .82rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #ffcc00;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  background: rgba(255,204,0,0.06);
+  border: 1px solid rgba(255,204,0,0.15);
+  border-radius: 8px;
+  width: fit-content;
+}
+.reward-icon { font-size: 1rem }
+
+.game-platforms {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 20px;
+}
+.platform-badge {
+  font-size: .7rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(180,230,255,0.55);
+  background: rgba(255,255,255,0.03);
+}
+
+.game-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--btn-glow, #00ffea), transparent);
+  background-color: rgba(0,255,234,0.08);
+  border: 1px solid var(--btn-glow, rgba(0,255,234,0.3));
+  color: var(--btn-glow, #00ffea);
+  transition: all 0.32s cubic-bezier(0.4,0,0.2,1);
+  text-decoration: none;
+}
+.game-download-btn:hover {
+  background: var(--btn-glow, #00ffea);
+  color: #000;
+  box-shadow: 0 0 40px var(--btn-glow, rgba(0,255,234,0.4)), 0 0 80px rgba(0,255,234,0.1);
+  transform: translateY(-2px);
+}
+
+/* Download Banner */
+.download-banner {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 36px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0,255,234,0.05), rgba(191,0,255,0.05));
+  border: 1px solid rgba(0,255,234,0.2);
+  backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.download-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, #00ffea, #bf00ff, transparent);
+}
+.download-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.robot-icon {
+  font-size: 3rem;
+  animation: robotBob 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(0,255,234,0.5));
+}
+@keyframes robotBob {
+  0%,100% { transform: translateY(0) }
+  50% { transform: translateY(-8px) }
+}
+.download-banner-left h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #eaf6ff;
+}
+.download-banner-left p {
+  font-size: .84rem;
+  color: rgba(180,230,255,0.6);
+  max-width: 420px;
+  line-height: 1.65;
+}
+.download-banner-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.dl-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.32s cubic-bezier(0.4,0,0.2,1);
+  white-space: nowrap;
+}
+.dl-windows {
+  background: linear-gradient(135deg, #00ffea, #0088ff);
+  color: #000;
+  box-shadow: 0 0 25px rgba(0,255,234,0.25);
+}
+.dl-windows:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(0,255,234,0.5), 0 8px 30px rgba(0,0,0,0.4);
+}
+.dl-android {
+  background: transparent;
+  color: #bf00ff;
+  border: 1px solid rgba(191,0,255,0.35);
+}
+.dl-android:hover {
+  background: rgba(191,0,255,0.12);
+  border-color: #bf00ff;
+  box-shadow: 0 0 30px rgba(191,0,255,0.3);
+  transform: translateY(-2px);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px) {
+  .games-grid { grid-template-columns: 1fr; }
+  .download-banner { flex-direction: column; text-align: center; padding: 28px 24px }
+  .download-banner-left { flex-direction: column; text-align: center }
+  .download-banner-left p { max-width:100% }
+  .download-banner-btns { flex-direction: row; justify-content: center }
+}
+@media(max-width:480px) {
+  .download-banner-btns { flex-direction: column; width: 100% }
+  .dl-btn { justify-content: center }
+  .game-card { padding: 20px }
+}

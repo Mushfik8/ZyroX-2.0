@@ -12,6 +12,7 @@ export default function Navbar({ walletAddress, connectWallet, disconnectWallet 
 
   const links = [
     { label: 'About', href: '#about' },
+    { label: 'Games', href: '#games' },
     { label: 'Tokenomics', href: '#tokenomics' },
     { label: 'Roadmap', href: '#roadmap' },
     { label: 'Team', href: '#team' },

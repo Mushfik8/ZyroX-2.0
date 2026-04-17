@@ -13,6 +13,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Ecosystem</h4>
             <a href="#about">About</a>
+            <a href="#games">Games</a>
             <a href="#tokenomics">Tokenomics</a>
             <a href="#roadmap">Roadmap</a>
             <a href="#team">Team</a>

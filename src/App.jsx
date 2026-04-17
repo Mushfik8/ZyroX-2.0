@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Games from './components/Games'
 import About from './components/About'
 import Tokenomics from './components/Tokenomics'
 import Roadmap from './components/Roadmap'
@@ -45,6 +46,7 @@ export default function App() {
       <Navbar walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} />
       <main>
         <Hero connectWallet={connectWallet} />
+        <Games />
         <About />
         <Tokenomics />
         <Roadmap />
