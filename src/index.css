@@ -2,20 +2,20 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
-  --bg-primary: #030014;
-  --bg-secondary: #0a0a1a;
+  --bg-primary: #02010c;
+  --bg-secondary: #08031a;
   --bg-card: rgba(15, 15, 35, 0.6);
   --bg-card-hover: rgba(25, 25, 55, 0.8);
   --glass: rgba(255,255,255,0.03);
   --glass-border: rgba(255,255,255,0.08);
-  --accent: #6c5ce7;
-  --accent-light: #a29bfe;
-  --accent-glow: rgba(108,92,231,0.4);
-  --neon-cyan: #00f5d4;
+  --accent: #4e54c8;
+  --accent-light: #8f94fb;
+  --accent-glow: rgba(78, 84, 200, 0.4);
+  --neon-cyan: #00d2ff;
   --neon-pink: #f72585;
-  --neon-blue: #4361ee;
-  --neon-purple: #7209b7;
-  --gold: #ffd60a;
+  --neon-blue: #4e54c8;
+  --neon-purple: #7a2ff7;
+  --gold: #f8ad03;
   --text-primary: #ffffff;
   --text-secondary: rgba(255,255,255,0.7);
   --text-muted: rgba(255,255,255,0.4);
@@ -42,7 +42,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);line-height:1.2}
 .section-title{font-size:clamp(2rem,5vw,3rem);margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,var(--accent-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-subtitle{font-size:1.1rem;color:var(--text-secondary);max-width:600px;margin:0 auto 48px}
 .text-center{text-align:center}
-.gradient-text{background:linear-gradient(135deg,var(--neon-cyan),var(--accent-light),var(--neon-pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text{background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ===== GLASSMORPHISM CARD ===== */
 .glass-card{background:var(--bg-card);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:32px;transition:var(--transition)}
@@ -62,10 +62,10 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);line-height:1.2}
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:var(--transition)}
 .navbar.scrolled{background:rgba(3,0,20,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);padding:10px 0}
 .navbar-inner{display:flex;align-items:center;justify-content:space-between}
-.navbar-logo{display:flex;align-items:center}
-.logo-img{height:56px;width:auto;transition:var(--transition)}
-.navbar-logo:hover .logo-img{transform:scale(1.05)}
-.navbar.scrolled .logo-img{height:44px}
+.navbar-logo{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:#fff}
+.logo-img{height:50px;width:auto;transition:var(--transition)}
+.navbar-logo:hover .logo-img{transform:scale(1.1) rotate(5deg)}
+.navbar.scrolled .logo-img{height:38px}
 .navbar-links{display:flex;align-items:center;gap:32px}
 .navbar-links a{color:var(--text-secondary);font-size:0.9rem;font-weight:500;transition:var(--transition);position:relative}
 .navbar-links a:hover{color:#fff}
@@ -86,7 +86,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);line-height:1.2}
 .hero-bg .orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:0.3;animation:orbFloat 8s ease-in-out infinite}
 .hero-bg .orb-1{width:500px;height:500px;background:var(--accent);top:-100px;right:-100px;animation-delay:0s}
 .hero-bg .orb-2{width:400px;height:400px;background:var(--neon-cyan);bottom:-50px;left:-100px;animation-delay:2s}
-.hero-bg .orb-3{width:300px;height:300px;background:var(--neon-pink);top:50%;left:50%;animation-delay:4s}
+.hero-bg .orb-3{width:300px;height:300px;background:var(--gold);top:50%;left:50%;animation-delay:4s}
 @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-30px) scale(1.1)}}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%)}
 .hero-content{position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto}
@@ -94,7 +94,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);line-height:1.2}
 .hero-badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--neon-cyan);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.5)}}
 .hero h1{font-size:clamp(2.5rem,7vw,4.5rem);margin-bottom:24px;line-height:1.1}
-.hero h1 .highlight{background:linear-gradient(135deg,var(--neon-cyan),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero p{font-size:clamp(1rem,2vw,1.25rem);color:var(--text-secondary);max-width:600px;margin:0 auto 40px;line-height:1.8}
 .hero-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
 .hero-stats{display:flex;justify-content:center;gap:48px;margin-top:64px;flex-wrap:wrap}
@@ -129,23 +129,23 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);line-height:1.2}
 
 /* ===== ROADMAP ===== */
 .roadmap-timeline{position:relative;max-width:800px;margin:0 auto}
-.roadmap-line{position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--neon-cyan),var(--neon-pink))}
+.roadmap-line{position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--neon-cyan),var(--gold))}
 .roadmap-item{position:relative;padding-left:64px;margin-bottom:48px}
 .roadmap-dot{position:absolute;left:16px;top:8px;width:18px;height:18px;border-radius:50%;border:3px solid var(--accent);background:var(--bg-primary);z-index:1}
-.roadmap-dot.active{background:var(--accent);box-shadow:0 0 20px var(--accent-glow)}
-.roadmap-phase{font-family:var(--font-display);font-size:0.75rem;color:var(--neon-cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.roadmap-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 20px rgba(248,173,3,0.4)}
+.roadmap-phase{font-family:var(--font-display);font-size:0.75rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
 .roadmap-item h3{font-size:1.3rem;margin-bottom:12px;font-family:var(--font-display)}
 .roadmap-list{display:flex;flex-direction:column;gap:8px}
 .roadmap-list li{display:flex;align-items:center;gap:10px;color:var(--text-secondary);font-size:0.9rem}
 .roadmap-list li .check{color:var(--neon-cyan);font-size:1rem}
 .roadmap-list li .pending{color:var(--text-muted);font-size:1rem}
 .roadmap-progress{margin-top:12px;height:4px;background:rgba(255,255,255,0.05);border-radius:999px;overflow:hidden}
-.roadmap-progress-bar{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--neon-cyan));transition:width 1s ease}
+.roadmap-progress-bar{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--gold));transition:width 1s ease}
 
 /* ===== TEAM ===== */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .team-card{text-align:center;padding:32px 20px}
-.team-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(135deg,var(--accent),var(--neon-cyan));display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;font-family:var(--font-display);border:2px solid rgba(108,92,231,0.3)}
+.team-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(135deg,var(--accent),var(--neon-cyan),var(--gold));display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;font-family:var(--font-display);border:2px solid rgba(143,148,251,0.3)}
 .team-card h3{font-size:1rem;margin-bottom:4px;font-family:var(--font-display)}
 .team-card .role{color:var(--accent-light);font-size:0.8rem;margin-bottom:12px}
 .team-card p{font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:16px}
