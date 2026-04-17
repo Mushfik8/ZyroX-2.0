@@ -12,7 +12,7 @@ const contactCards = [
     color: '#00f5d4',
     title: 'Telegram',
     desc: 'Join our community',
-    link: 'https://t.me/ZyroX',
+    link: 'https://t.me/zyroxtoken',
   },
   {
     icon: (

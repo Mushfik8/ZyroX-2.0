@@ -20,7 +20,7 @@ export default function CTA({ connectWallet }) {
             <button className="btn btn-primary btn-glow" onClick={connectWallet}>
               Connect Wallet
             </button>
-            <a href="https://t.me/metanovafi" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+            <a href="https://t.me/zyroxtoken" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
               Join Telegram
             </a>
           </div>
