@@ -2,12 +2,12 @@ import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
 const tokenData = [
-  { label: 'Liquidity Pool', pct: 30, color: '#4e54c8', amount: '30,000,000,000' },
-  { label: 'Play-to-Earn Rewards', pct: 25, color: '#00d2ff', amount: '25,000,000,000' },
-  { label: 'Development', pct: 15, color: '#7a2ff7', amount: '15,000,000,000' },
-  { label: 'Marketing', pct: 10, color: '#f8ad03', amount: '10,000,000,000' },
-  { label: 'Team & Advisors', pct: 10, color: '#ffd700', amount: '10,000,000,000' },
-  { label: 'Community Airdrops', pct: 10, color: '#8f94fb', amount: '10,000,000,000' },
+  { label: 'Liquidity Pool', pct: 30, color: '#6c5ce7', amount: '30,000,000,000' },
+  { label: 'Play-to-Earn Rewards', pct: 25, color: '#00f5d4', amount: '25,000,000,000' },
+  { label: 'Development', pct: 15, color: '#f72585', amount: '15,000,000,000' },
+  { label: 'Marketing', pct: 10, color: '#4361ee', amount: '10,000,000,000' },
+  { label: 'Team & Advisors', pct: 10, color: '#ffd60a', amount: '10,000,000,000' },
+  { label: 'Community Airdrops', pct: 10, color: '#7209b7', amount: '10,000,000,000' },
 ]
 
 function DonutChart() {

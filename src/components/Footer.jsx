@@ -1,13 +1,11 @@
-import logoIcon from '../assets/logo-icon.png'
-
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#" className="navbar-logo" style={{ marginBottom: 16 }}>
-              <img src={logoIcon} alt="ZyroX Logo" className="logo-img" />
+            <a href="#" className="navbar-logo" style={{ marginBottom: 8 }}>
+              <div className="logo-icon">Z</div>
               <span>ZyroX</span>
             </a>
             <p>

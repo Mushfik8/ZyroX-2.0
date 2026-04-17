@@ -59,7 +59,7 @@ export default function Roadmap() {
           <span className="section-badge">🗺️ Roadmap</span>
           <h2 className="section-title">Development Roadmap</h2>
           <p className="section-subtitle">
-            Our strategic plan to build, launch, and scale the ZyroX ecosystem across four key phases.
+            Our strategic plan to build, launch, and scale the MetaNovaFi ecosystem across four key phases.
           </p>
         </div>
 
