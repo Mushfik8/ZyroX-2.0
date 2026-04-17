@@ -67,8 +67,8 @@ h1,h2,h3,h4{font-family:var(--fd);line-height:1.15}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:1.4rem;font-family:var(--fd);color:var(--t2);transition:var(--tr)}
 .mobile-menu a:hover{color:var(--c1);text-shadow:0 0 20px var(--c1)}
-.mobile-close{position:absolute;top:24px;right:24px;background:none;color:var(--t2);font-size:1.8rem;transition:var(--tr)}
-.mobile-close:hover{color:var(--c1)}
+.mobile-close{position:absolute;top:24px;right:24px;background:rgba(255,255,255,0.05);color:var(--t1);font-size:1.4rem;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(255,255,255,0.1);transition:var(--tr)}
+.mobile-close:hover{color:var(--c1);border-color:var(--c1);background:rgba(0,255,234,0.1)}
 .wallet-btn{position:relative;padding:2px;border-radius:10px;background:linear-gradient(135deg,var(--c1),var(--c2));display:inline-flex}
 .wallet-btn-inner{background:var(--bg);border-radius:8px;padding:8px 18px;display:flex;align-items:center;gap:7px;font-weight:600;font-size:.82rem;color:var(--c1);transition:var(--tr)}
 .wallet-btn:hover .wallet-btn-inner{background:transparent;color:#000}
@@ -201,10 +201,11 @@ h1,h2,h3,h4{font-family:var(--fd);line-height:1.15}
   .section{padding:70px 0}
   .container{padding:0 18px}
   .navbar-links{display:none}
-  .navbar-actions .btn:not(.mobile-toggle){display:none}
+  .navbar-actions > button:not(.mobile-toggle){display:none}
   .mobile-toggle{display:flex}
   .features-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr 1fr}
+  .team-card{padding:20px 14px}
   .hero-stats{gap:0}
   .hero h1{font-size:2.3rem}
   .footer-grid{grid-template-columns:1fr}
