@@ -1,45 +1,62 @@
 import { useState, useEffect } from 'react'
-import Navbar from './components/Navbar'
-import SystemBoot from './components/SystemBoot'
-import CommandCenter from './components/CommandCenter'
+import { motion, AnimatePresence } from 'framer-motion'
+import OSSidebar from './components/OSSidebar'
+import UserControlPanel from './components/UserControlPanel'
 import TaskMatrix from './components/TaskMatrix'
 import DataHub from './components/DataHub'
-import NeuralGrid from './components/NeuralGrid'
 import SecurityProtocol from './components/SecurityProtocol'
-import Footer from './components/Footer'
-import MouseGlow from './components/MouseGlow'
+import TokenFlowVisual from './components/TokenFlowVisual'
+import ProgressionSystem from './components/ProgressionSystem'
+import NetworkGrid from './components/NetworkGrid'
+import SystemBoot from './components/SystemBoot'
 
 export default function App() {
   const [booting, setBooting] = useState(true)
+  const [activeView, setActiveView] = useState('control')
   const [walletAddress, setWalletAddress] = useState('')
 
-  const connectWallet = () => {
-    setWalletAddress('0x4F9...A1B2')
-  }
-
-  const disconnectWallet = () => {
-    setWalletAddress('')
-  }
+  const connectWallet = () => setWalletAddress('0x4F9...A1B2')
+  const disconnectWallet = () => setWalletAddress('')
 
   if (booting) {
     return <SystemBoot onBootComplete={() => setBooting(false)} />
   }
 
-  return (
-    <div className="v3-layout">
-      <div className="cyber-grid-bg" />
-      <MouseGlow />
-      <Navbar walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} />
-      
-      <main>
-        <CommandCenter connectWallet={connectWallet} walletAddress={walletAddress} />
-        <TaskMatrix />
-        <DataHub />
-        <NeuralGrid />
-        <SecurityProtocol />
-      </main>
+  // View Router
+  const renderView = () => {
+    switch (activeView) {
+      case 'control': return <UserControlPanel walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} setActiveView={setActiveView} />
+      case 'tasks': return <TaskMatrix />
+      case 'telemetry': return <DataHub />
+      case 'tokenFlow': return <TokenFlowVisual />
+      case 'progression': return <ProgressionSystem />
+      case 'network': return <NetworkGrid />
+      case 'security': return <SecurityProtocol />
+      default: return <UserControlPanel walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} setActiveView={setActiveView} />
+    }
+  }
 
-      <Footer />
+  return (
+    <div className="os-layout">
+      <div className="os-grid-bg" />
+      
+      <OSSidebar activeView={activeView} setActiveView={setActiveView} />
+      
+      <main className="os-main-view">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeView}
+            initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+            transition={{ duration: 0.2 }}
+            style={{ minHeight: '100%' }}
+          >
+            {renderView()}
+          </motion.div>
+        </AnimatePresence>
+      </main>
+      
     </div>
   )
 }
