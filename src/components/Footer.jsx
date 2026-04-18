@@ -1,54 +1,101 @@
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="container">
+    <footer className="cyber-footer">
+      <div className="node-container">
+        
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#" className="navbar-logo" style={{ marginBottom:12 }}>
-              <div className="logo-icon">Z</div>
-              <span>ZyroX</span>
-            </a>
-            <p>A next-gen gaming and DeFi ecosystem on BNB Chain. Building the future of play-to-earn and decentralized finance.</p>
+            <div className="footer-logo">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span>ZYROX</span>
+            </div>
+            <p>The neural infrastructure for Web3 earning. Execute tasks, validate operations, and extract yield through decentralized protocols.</p>
           </div>
-          <div className="footer-col">
-            <h4>Ecosystem</h4>
-            <a href="#about">About</a>
-            <a href="#games">Games</a>
-            <a href="#tokenomics">Tokenomics</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#team">Team</a>
-            <a href="#support">Support</a>
-          </div>
-          <div className="footer-col">
-            <h4>Resources</h4>
-            <a href="#">Whitepaper</a>
-            <a href="#">Documentation</a>
-            <a href="#">Smart Contract</a>
-            <a href="#">Brand Kit</a>
-          </div>
-          <div className="footer-col">
-            <h4>Community</h4>
-            <a href="https://t.me/zyroxtoken" target="_blank" rel="noopener noreferrer">Telegram</a>
-            <a href="https://x.com/zyro_x_gaming" target="_blank" rel="noopener noreferrer">Twitter / X</a>
-            <a href="https://discord.gg/zyrox" target="_blank" rel="noopener noreferrer">Discord</a>
-            <a href="https://medium.com/@zyroxtoken" target="_blank" rel="noopener noreferrer">Medium</a>
+          
+          <div className="footer-links">
+            <div className="link-col">
+              <h4>SYSTEM</h4>
+              <a href="#command">Command Center</a>
+              <a href="#tasks">Task Matrix</a>
+              <a href="#data">Telemetry</a>
+              <a href="#roadmap">Neural Grid</a>
+            </div>
+            <div className="link-col">
+              <h4>PROTOCOL</h4>
+              <a href="#">Whitepaper</a>
+              <a href="#security">Security Audit</a>
+              <a href="#">Tokenomics</a>
+              <a href="#">Governance</a>
+            </div>
+            <div className="link-col">
+              <h4>NETWORK</h4>
+              <a href="#">Twitter Node</a>
+              <a href="#">Discord Server</a>
+              <a href="#">Telegram Comm</a>
+              <a href="#">Github Repo</a>
+            </div>
           </div>
         </div>
+
         <div className="footer-bottom">
-          <p>© 2025 ZyroX. All rights reserved.</p>
-          <div className="footer-socials">
-            <a href="https://x.com/zyro_x_gaming" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://t.me/zyroxtoken" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            </a>
-            <a href="https://discord.gg/zyrox" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"/></svg>
-            </a>
+          <div className="sys-status">
+            <span className="status-dot" /> SYSTEM ONLINE // ALL PROTOCOLS NOMINAL
+          </div>
+          <div className="copyright">
+            &copy; {new Date().getFullYear()} ZYROX DAO. ALL RIGHTS RESERVED.
           </div>
         </div>
+
       </div>
+
+      <style>{`
+        .cyber-footer {
+          border-top: 1px solid rgba(0, 240, 255, 0.15);
+          padding: 80px 0 40px;
+          background: rgba(0, 5, 10, 0.8);
+          position: relative;
+          overflow: hidden;
+        }
+        .cyber-footer::before {
+          content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background: radial-gradient(circle at 50% 100%, rgba(0, 240, 255, 0.05) 0%, transparent 50%);
+          pointer-events: none;
+        }
+
+        .footer-grid {
+          display: flex; justify-content: space-between; gap: 60px;
+          margin-bottom: 60px;
+        }
+
+        .footer-brand { max-width: 400px; }
+        .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-family: var(--font-display); font-size: 1.8rem; font-weight: bold; letter-spacing: 2px; color: #fff; }
+        .footer-brand p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.8; }
+
+        .footer-links { display: flex; gap: 60px; }
+        .link-col { display: flex; flex-direction: column; gap: 16px; }
+        .link-col h4 { font-size: 0.8rem; color: var(--neon-cyan); letter-spacing: 2px; margin-bottom: 8px; }
+        .link-col a { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+        .link-col a:hover { color: #fff; }
+
+        .footer-bottom {
+          display: flex; justify-content: space-between; align-items: center;
+          padding-top: 32px; border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .sys-status {
+          display: flex; align-items: center; gap: 8px;
+          font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 1px;
+        }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); animation: blink 2s infinite; }
+
+        .copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
+
+        @media (max-width: 900px) {
+          .footer-grid { flex-direction: column; gap: 40px; }
+          .footer-links { flex-wrap: wrap; gap: 40px; }
+          .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+        }
+      `}</style>
     </footer>
   )
 }

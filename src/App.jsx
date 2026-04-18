@@ -1,61 +1,45 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Games from './components/Games'
-import About from './components/About'
-import Tokenomics from './components/Tokenomics'
-import Roadmap from './components/Roadmap'
-import Team from './components/Team'
-import FAQ from './components/FAQ'
-import Support from './components/Support'
-import CTA from './components/CTA'
+import SystemBoot from './components/SystemBoot'
+import CommandCenter from './components/CommandCenter'
+import TaskMatrix from './components/TaskMatrix'
+import DataHub from './components/DataHub'
+import NeuralGrid from './components/NeuralGrid'
+import SecurityProtocol from './components/SecurityProtocol'
 import Footer from './components/Footer'
-import Particles from './components/Particles'
 import MouseGlow from './components/MouseGlow'
 
 export default function App() {
-  const [walletAddress, setWalletAddress] = useState(null)
+  const [booting, setBooting] = useState(true)
+  const [walletAddress, setWalletAddress] = useState('')
 
-  const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      try {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-        setWalletAddress(accounts[0])
-      } catch (err) {
-        console.error('Wallet connection failed:', err)
-      }
-    } else {
-      alert('Please install MetaMask or a Web3 wallet to connect.')
-    }
+  const connectWallet = () => {
+    setWalletAddress('0x4F9...A1B2')
   }
 
-  const disconnectWallet = () => setWalletAddress(null)
+  const disconnectWallet = () => {
+    setWalletAddress('')
+  }
 
-  useEffect(() => {
-    if (typeof window.ethereum !== 'undefined') {
-      window.ethereum.on('accountsChanged', (accounts) => {
-        setWalletAddress(accounts[0] || null)
-      })
-    }
-  }, [])
+  if (booting) {
+    return <SystemBoot onBootComplete={() => setBooting(false)} />
+  }
 
   return (
-    <>
+    <div className="v3-layout">
+      <div className="cyber-grid-bg" />
       <MouseGlow />
-      <Particles />
       <Navbar walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} />
+      
       <main>
-        <Hero connectWallet={connectWallet} />
-        <Games />
-        <About />
-        <Tokenomics />
-        <Roadmap />
-        <Team />
-        <FAQ />
-        <Support />
-        <CTA connectWallet={connectWallet} />
+        <CommandCenter connectWallet={connectWallet} walletAddress={walletAddress} />
+        <TaskMatrix />
+        <DataHub />
+        <NeuralGrid />
+        <SecurityProtocol />
       </main>
+
       <Footer />
-    </>
+    </div>
   )
 }
