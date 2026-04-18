@@ -1,6 +1,20 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 export default function UserControlPanel({ walletAddress, connectWallet, disconnectWallet, setActiveView }) {
+  const [xpToConvert, setXpToConvert] = useState(0)
+  const [converting, setConverting] = useState(false)
+
+  const handleConvert = () => {
+    if (xpToConvert > 0) {
+      setConverting(true)
+      setTimeout(() => {
+        setConverting(false)
+        setXpToConvert(0)
+      }, 2000)
+    }
+  }
+
   return (
     <div className="os-view-container">
       <h2 className="sys-title">USER CONTROL <span style={{ color: 'var(--neon-purple)' }}>PANEL</span></h2>
@@ -21,7 +35,7 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
               </div>
               <div className="id-info">
                 <div className="wallet-hash">{walletAddress}</div>
-                <div className="clearance-level">CLEARANCE: LEVEL 1</div>
+                <div className="clearance-level">CLEARANCE: LEVEL 2 (OPERATOR)</div>
               </div>
               <button className="cyber-btn sm warning" onClick={disconnectWallet} style={{ marginLeft: 'auto' }}>TERMINATE LINK</button>
             </div>
@@ -33,42 +47,70 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
           )}
         </div>
 
-        {/* Balance Panel */}
-        <div className="os-panel balance-panel">
+        {/* Dual Economy: XP Balance */}
+        <div className="os-panel xp-panel">
           <div className="panel-header">
-            <span className="panel-tag">ASSET REPOSITORY</span>
+            <span className="panel-tag" style={{ color: 'var(--neon-purple)' }}>OFF-CHAIN ASSETS</span>
           </div>
           <div className="balance-display">
-            <div className="balance-val">
-              {walletAddress ? '1,420.50' : '0.00'}
-            </div>
-            <div className="balance-sym">$ZYROX</div>
+            <div className="balance-val" style={{ color: '#fff' }}>{walletAddress ? '12,450' : '0'}</div>
+            <div className="balance-sym" style={{ color: 'var(--neon-purple)' }}>XP</div>
+          </div>
+          <p className="sys-desc">Earn XP through Tasks and Mini-Games.</p>
+        </div>
+
+        {/* Dual Economy: ZRX Balance */}
+        <div className="os-panel zrx-panel">
+          <div className="panel-header">
+            <span className="panel-tag" style={{ color: 'var(--neon-cyan)' }}>ON-CHAIN ASSETS</span>
+          </div>
+          <div className="balance-display">
+            <div className="balance-val" style={{ color: '#fff' }}>{walletAddress ? '1,420.50' : '0.00'}</div>
+            <div className="balance-sym" style={{ color: 'var(--neon-cyan)' }}>$ZRX</div>
           </div>
           <div className="balance-actions">
-            <button className="cyber-btn sm" disabled={!walletAddress}>WITHDRAW</button>
-            <button className="cyber-btn sm" disabled={!walletAddress}>STAKE</button>
+            <button className="cyber-btn sm" disabled={!walletAddress} onClick={() => setActiveView('staking')}>STAKE ZRX</button>
+            <button className="cyber-btn sm" disabled={!walletAddress} onClick={() => setActiveView('utility')}>MARKET</button>
           </div>
         </div>
 
-        {/* Quick Actions / System Status */}
-        <div className="os-panel quick-actions-panel">
+        {/* XP to ZRX Conversion Terminal */}
+        <div className="os-panel conversion-panel">
           <div className="panel-header">
-            <span className="panel-tag">QUICK OPERATIONS</span>
+            <span className="panel-tag" style={{ color: 'var(--neon-orange)' }}>SYNTHESIS PROTOCOL</span>
+            <span className="cooldown-tag">RESET IN: 04:12:00</span>
           </div>
-          <div className="action-list">
-            <button className="action-btn" onClick={() => setActiveView('tasks')}>
-              <span className="action-icon" style={{ color: 'var(--neon-cyan)' }}>■</span>
-              ACCESS TASK MATRIX
-            </button>
-            <button className="action-btn" onClick={() => setActiveView('telemetry')}>
-              <span className="action-icon" style={{ color: 'var(--neon-green)' }}>▲</span>
-              VIEW LIVE TELEMETRY
-            </button>
-            <button className="action-btn" onClick={() => setActiveView('tokenFlow')}>
-              <span className="action-icon" style={{ color: 'var(--neon-orange)' }}>●</span>
-              ANALYZE TOKEN FLOW
-            </button>
+          
+          <div className="conversion-ui">
+            <div className="conv-input-group">
+              <label>CONVERT XP</label>
+              <input 
+                type="number" 
+                className="cyber-input" 
+                value={xpToConvert} 
+                onChange={(e) => setXpToConvert(e.target.value)} 
+                min="0" max="12450" 
+                disabled={!walletAddress || converting}
+              />
+            </div>
+            
+            <div className="conv-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--neon-orange)" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <div className="conv-input-group">
+              <label>RECEIVE $ZRX</label>
+              <div className="conv-output">{(xpToConvert * 0.1).toFixed(2)}</div>
+            </div>
           </div>
+          
+          <button 
+            className={`cyber-btn primary full-width mt-4 ${converting ? 'loading' : ''}`}
+            onClick={handleConvert}
+            disabled={!walletAddress || converting || xpToConvert <= 0}
+          >
+            {converting ? 'SYNTHESIZING TOKENS...' : 'EXECUTE SYNTHESIS'}
+          </button>
         </div>
 
       </div>
@@ -79,19 +121,20 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
         .control-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: auto auto;
           gap: 24px;
         }
 
         .id-panel { grid-column: 1 / -1; }
-        .balance-panel { grid-column: 1 / 2; }
-        .quick-actions-panel { grid-column: 2 / 3; }
+        .xp-panel { grid-column: 1 / 2; }
+        .zrx-panel { grid-column: 2 / 3; }
+        .conversion-panel { grid-column: 1 / -1; }
 
         .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
         .panel-tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; }
         .status { font-family: var(--font-mono); font-size: 0.7rem; padding: 4px 8px; border-radius: var(--radius-sm); border: 1px solid; }
         .status.active { color: var(--neon-green); border-color: rgba(0,255,102,0.3); background: rgba(0,255,102,0.1); }
         .status.offline { color: var(--neon-orange); border-color: rgba(255,60,0,0.3); background: rgba(255,60,0,0.1); }
+        .cooldown-tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--neon-orange); border: 1px dashed var(--neon-orange); padding: 4px 8px; border-radius: 4px; }
 
         .id-details { display: flex; align-items: center; gap: 24px; }
         .avatar-placeholder { width: 64px; height: 64px; border-radius: var(--radius-md); background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.3); display: flex; align-items: center; justify-content: center; color: var(--neon-cyan); }
@@ -102,29 +145,34 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
         .offline-mode { flex-direction: column; align-items: flex-start; gap: 16px; }
         .offline-mode p { color: var(--text-dim); }
 
-        .balance-display { display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; }
-        .balance-val { font-family: var(--font-display); font-size: 3.5rem; font-weight: bold; color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
-        .balance-sym { font-family: var(--font-mono); color: var(--neon-cyan); font-size: 1.2rem; }
+        .balance-display { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+        .balance-val { font-family: var(--font-display); font-size: 3rem; font-weight: bold; color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        .balance-sym { font-family: var(--font-mono); font-size: 1.2rem; font-weight: bold; }
+        
+        .sys-desc { font-size: 0.85rem; color: var(--text-dim); }
 
-        .balance-actions { display: flex; gap: 16px; }
+        .balance-actions { display: flex; gap: 16px; margin-top: 16px; }
         .cyber-btn.sm { padding: 8px 16px; font-size: 0.75rem; }
 
-        .action-list { display: flex; flex-direction: column; gap: 12px; }
-        .action-btn { 
-          display: flex; align-items: center; gap: 16px; 
-          background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); 
-          padding: 16px; border-radius: var(--radius-md); 
-          color: var(--text-main); transition: var(--tr);
-          font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 1px; text-align: left;
-        }
-        .action-btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); transform: translateX(4px); }
-        .action-icon { font-size: 1.2rem; }
+        .conversion-ui { display: flex; align-items: center; gap: 24px; background: rgba(0,0,0,0.4); padding: 24px; border-radius: var(--radius-md); border: 1px dashed rgba(255,255,255,0.1); }
+        .conv-input-group { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+        .conv-input-group label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); }
+        
+        .cyber-input { background: rgba(0,0,0,0.5); border: 1px solid var(--panel-border); color: #fff; padding: 12px 16px; font-family: var(--font-mono); font-size: 1.2rem; border-radius: var(--radius-sm); outline: none; transition: var(--tr); }
+        .cyber-input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 10px rgba(0,240,255,0.2); }
+        .conv-output { background: rgba(0,240,255,0.05); border: 1px solid rgba(0,240,255,0.2); color: var(--neon-cyan); padding: 12px 16px; font-family: var(--font-mono); font-size: 1.2rem; border-radius: var(--radius-sm); }
+        
+        .full-width { width: 100%; }
+        .mt-4 { margin-top: 24px; }
+        .cyber-btn.loading { opacity: 0.7; border-color: var(--neon-orange); color: var(--neon-orange); pointer-events: none; animation: pulse 1s infinite; }
 
         @media (max-width: 900px) {
           .control-grid { grid-template-columns: 1fr; }
-          .balance-panel, .quick-actions-panel { grid-column: 1 / -1; }
+          .xp-panel, .zrx-panel { grid-column: 1 / -1; }
           .id-details { flex-direction: column; align-items: flex-start; }
           .cyber-btn.sm.warning { margin-left: 0 !important; margin-top: 16px; }
+          .conversion-ui { flex-direction: column; align-items: stretch; }
+          .conv-arrow { align-self: center; transform: rotate(90deg); }
         }
       `}</style>
     </div>
