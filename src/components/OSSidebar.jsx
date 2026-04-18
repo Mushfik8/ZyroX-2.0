@@ -53,6 +53,15 @@ export default function OSSidebar({ activeView, setActiveView }) {
           <button className={`os-nav-item ${activeView === 'security' ? 'active' : ''}`} data-tooltip="SECURITY" onClick={() => handleNavClick('security')}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           </button>
+          
+          <div className="os-socials" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px', borderTop: '1px dashed rgba(255,255,255,0.1)', paddingTop: '16px' }}>
+            <a href="https://x.com/ZyroX" target="_blank" rel="noreferrer" className="os-nav-item" data-tooltip="X (TWITTER)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://t.me/ZyroX" target="_blank" rel="noreferrer" className="os-nav-item" data-tooltip="TELEGRAM">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </a>
+          </div>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -99,6 +108,15 @@ export default function OSSidebar({ activeView, setActiveView }) {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             <span>SECURITY</span>
           </button>
+        </div>
+        
+        <div className="mobile-socials" style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: 'auto', paddingTop: '24px', borderTop: '1px dashed rgba(255,255,255,0.1)' }}>
+          <a href="https://x.com/ZyroX" target="_blank" rel="noreferrer" style={{ color: 'var(--text-dim)' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://t.me/ZyroX" target="_blank" rel="noreferrer" style={{ color: 'var(--text-dim)' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </a>
         </div>
       </div>
     </>
