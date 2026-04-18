@@ -3,7 +3,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
-  /* V4 OS Palette */
+  /* V4/V5 OS Palette */
   --bg-void: #020005;
   --bg-surface: #06020c;
   --bg-panel: rgba(10, 5, 20, 0.7);
@@ -116,11 +116,15 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-d
 }
 
 .os-nav {
-  display: flex; flex-direction: column; gap: 20px; flex: 1;
+  display: flex; flex-direction: column; gap: 16px; flex: 1;
+}
+
+.os-nav-bottom {
+  display: flex; flex-direction: column; gap: 16px; align-items: center; margin-top: auto;
 }
 
 .os-nav-item {
-  width: 48px; height: 48px;
+  width: 44px; height: 44px;
   border-radius: var(--radius-md);
   display: flex; align-items: center; justify-content: center;
   color: var(--text-dim);
@@ -143,7 +147,7 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-d
 }
 
 .os-nav-item.active::before {
-  content: ''; position: absolute; left: -16px; top: 50%; transform: translateY(-50%);
+  content: ''; position: absolute; left: -18px; top: 50%; transform: translateY(-50%);
   width: 4px; height: 24px; background: var(--neon-cyan); border-radius: 2px;
   box-shadow: 0 0 10px var(--neon-cyan);
 }
@@ -151,7 +155,7 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-d
 /* Tooltips */
 .os-nav-item::after {
   content: attr(data-tooltip);
-  position: absolute; left: 60px;
+  position: absolute; left: 56px;
   background: rgba(0, 5, 10, 0.9);
   border: 1px solid var(--neon-cyan);
   padding: 6px 12px;
@@ -163,6 +167,45 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-d
   transition: var(--tr);
 }
 .os-nav-item:hover::after { opacity: 1; transform: translateX(0); }
+
+/* Mobile Menu Elements */
+.mobile-menu-btn { display: none; background: none; color: var(--neon-cyan); padding: 8px; }
+
+.mobile-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0, 2, 5, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex; flex-direction: column;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.mobile-overlay.open { opacity: 1; pointer-events: auto; }
+
+.mobile-overlay-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.mobile-close-btn { background: none; color: var(--neon-orange); display: flex; align-items: center; justify-content: center; }
+
+.mobile-nav-grid { display: flex; flex-direction: column; gap: 12px; padding-bottom: 40px; }
+
+.mobile-nav-item {
+  display: flex; align-items: center; gap: 16px;
+  width: 100%; padding: 16px 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: 1px;
+  transition: var(--tr);
+}
+.mobile-nav-item.active {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: rgba(0, 240, 255, 0.4);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}
 
 /* Main Content Area */
 .os-main-view {
@@ -207,11 +250,22 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-d
 
 @media (max-width: 768px) {
   .os-layout { flex-direction: column; }
-  .os-sidebar { width: 100%; height: 60px; flex-direction: row; padding: 0 20px; justify-content: space-between; border-right: none; border-bottom: 1px solid var(--panel-border); }
-  .os-sidebar-brand { margin: 0; width: 36px; height: 36px; }
-  .os-nav { flex-direction: row; gap: 10px; flex: 0; }
-  .os-nav-item { width: 40px; height: 40px; }
-  .os-nav-item.active::before { left: 50%; top: -10px; transform: translateX(-50%); width: 24px; height: 4px; }
-  .os-nav-item::after { display: none; }
-  .os-main-view { padding: 16px; }
+  
+  /* Mobile Sidebar styling */
+  .os-sidebar { 
+    width: 100%; height: 70px; 
+    flex-direction: row; padding: 0 24px; 
+    justify-content: space-between; 
+    border-right: none; border-bottom: 1px solid var(--panel-border); 
+  }
+  
+  .os-sidebar-brand { margin: 0; width: 40px; height: 40px; }
+  
+  /* Hide desktop nav on mobile */
+  .os-nav, .os-nav-bottom { display: none; }
+  
+  /* Show hamburger button */
+  .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+  
+  .os-main-view { padding: 20px; }
 }
