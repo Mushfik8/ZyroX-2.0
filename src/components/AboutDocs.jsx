@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import pitchDeck from '../assets/ZoraX-PITCH DECK.pdf'
 
 export default function AboutDocs() {
   return (
@@ -121,9 +122,9 @@ export default function AboutDocs() {
               <div className="doc-info">
                 <h4>PITCH DECK</h4>
                 <p>Investor overview, market analysis, and growth strategy.</p>
-                <div className="doc-meta"><span>PDF</span><span>8.5 MB</span></div>
+                <div className="doc-meta"><span>PDF</span><span>6.7 MB</span></div>
               </div>
-              <button className="cyber-btn sm">DOWNLOAD</button>
+              <a href={pitchDeck} download="ZyroX-PITCH-DECK.pdf" className="cyber-btn sm" style={{ textAlign: 'center' }}>DOWNLOAD</a>
             </div>
             <div className="doc-card">
               <div className="doc-icon">🔐</div>
