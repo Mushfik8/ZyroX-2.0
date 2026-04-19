@@ -14,6 +14,7 @@ import TokenFlowVisual from './components/TokenFlowVisual'
 import SecurityProtocol from './components/SecurityProtocol'
 import SupportCenter from './components/SupportCenter'
 import SystemBoot from './components/SystemBoot'
+import AboutDocs from './components/AboutDocs'
 
 export default function App() {
   const [booting, setBooting] = useState(true)
@@ -42,6 +43,7 @@ export default function App() {
       case 'tokenFlow': return <TokenFlowVisual />
       case 'security': return <SecurityProtocol />
       case 'support': return <SupportCenter />
+      case 'about': return <AboutDocs />
       default: return <UserControlPanel walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} setActiveView={setActiveView} />
     }
   }
