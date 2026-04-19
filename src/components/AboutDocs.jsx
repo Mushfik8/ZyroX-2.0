@@ -17,7 +17,13 @@ export default function AboutDocs() {
             <h1 className="brand-title">ZYROX <span className="brand-os">OS</span></h1>
           </div>
           <div className="hero-desc">
-            <p>ZyroX is a next-generation AI-driven Web3 operating system. Built for seamless interaction, asset management, and gamified progression, ZyroX bridges the gap between decentralized finance and futuristic user interfaces.</p>
+            <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#fff', marginBottom: '8px' }}>ZyroX — Web3 Engagement Operating System</p>
+            <p style={{ color: 'var(--neon-purple)', letterSpacing: '2px', marginBottom: '16px', fontFamily: 'var(--font-mono)' }}>PLAY. EARN. CONVERT. PARTICIPATE.</p>
+            <p>ZyroX transforms user activity into a tokenized ecosystem where users play games, complete tasks, and earn rewards. Built for seamless interaction, asset management, and gamified progression.</p>
+          </div>
+          <div style={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
+            <button className="cyber-btn primary">START PLATFORM</button>
+            <button className="cyber-btn">EXPLORE ECOSYSTEM</button>
           </div>
         </div>
 
