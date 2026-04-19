@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import pitchDeck from '../assets/ZoraX-PITCH DECK.pdf'
+import pitchDeck from '../assets/ZyroX-PITCH-DECK.pdf'
 
 export default function AboutDocs() {
   return (
     <div className="os-view-container about-docs-view">
       <h2 className="sys-title">SYSTEM <span style={{ color: 'var(--neon-purple)' }}>DOCUMENTATION</span></h2>
-      
+
       <div className="docs-grid">
-        
+
         {/* A. Project Overview & Branding */}
         <div className="os-panel hero-panel">
           <div className="hero-brand">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--neon-cyan)' }}>
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
             <h1 className="brand-title">ZYROX <span className="brand-os">OS</span></h1>
           </div>
@@ -89,7 +89,7 @@ export default function AboutDocs() {
           <div className="tokenomics-content">
             <div className="chart-placeholder">
               <div className="circle-chart">
-                <div className="inner-circle">TOTAL SUPPLY<br/><span style={{ color: '#fff', fontSize: '1.2rem' }}>1,000,000,000</span></div>
+                <div className="inner-circle">TOTAL SUPPLY<br /><span style={{ color: '#fff', fontSize: '1.2rem' }}>1,000,000,000</span></div>
               </div>
             </div>
             <div className="dist-list">
@@ -122,7 +122,7 @@ export default function AboutDocs() {
               <div className="doc-info">
                 <h4>PITCH DECK</h4>
                 <p>Investor overview, market analysis, and growth strategy.</p>
-                <div className="doc-meta"><span>PDF</span><span>6.7 MB</span></div>
+                <div className="doc-meta"><span>PDF</span><span>6.72 MB</span></div>
               </div>
               <a href={pitchDeck} download="ZyroX-PITCH-DECK.pdf" className="cyber-btn sm" style={{ textAlign: 'center' }}>DOWNLOAD</a>
             </div>
@@ -145,11 +145,11 @@ export default function AboutDocs() {
               <span className="panel-tag">TRANSMISSION CHANNELS</span>
             </div>
             <div className="social-grid">
-              <a href="https://x.com/ZyroX" target="_blank" rel="noreferrer" className="social-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <a href="https://x.com/zyro_x_gaming" target="_blank" rel="noreferrer" className="social-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
                 <span>X (TWITTER)</span>
               </a>
-              <a href="https://t.me/ZyroX" target="_blank" rel="noreferrer" className="social-btn">
+              <a href="https://t.me/zyroxtoken" target="_blank" rel="noreferrer" className="social-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 <span>TELEGRAM</span>
               </a>
@@ -165,7 +165,7 @@ export default function AboutDocs() {
           </div>
 
           <div className="os-panel transparency-panel">
-             <div className="panel-header">
+            <div className="panel-header">
               <span className="panel-tag" style={{ color: 'var(--neon-green)' }}>SYSTEM STATUS</span>
             </div>
             <div className="status-list">

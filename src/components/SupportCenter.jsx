@@ -65,12 +65,12 @@ export default function SupportCenter() {
           </div>
           
           <div className="os-panel social-links-panel" style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', borderColor: 'rgba(255,255,255,0.1)' }}>
-            <a href="https://x.com/ZyroX" target="_blank" rel="noreferrer" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', color: 'var(--text-dim)' }}>
+            <a href="https://x.com/zyro_x_gaming" target="_blank" rel="noreferrer" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', color: 'var(--text-dim)' }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem' }}>FOLLOW US</span>
             </a>
             <div style={{ width: '1px', height: '30px', background: 'rgba(255,255,255,0.1)' }}></div>
-            <a href="https://t.me/ZyroX" target="_blank" rel="noreferrer" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', color: 'var(--text-dim)' }}>
+            <a href="https://t.me/zyroxtoken" target="_blank" rel="noreferrer" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', color: 'var(--text-dim)' }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem' }}>JOIN TELEGRAM</span>
             </a>
