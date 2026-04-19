@@ -47,6 +47,39 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
           )}
         </div>
 
+        {/* How ZyroX Works Flow */}
+        <div className="os-panel flow-panel">
+          <div className="panel-header">
+            <span className="panel-tag" style={{ color: 'var(--neon-purple)' }}>HOW ZYROX WORKS</span>
+          </div>
+          <div className="flow-container">
+            <div className="flow-step">
+              <div className="step-icon">🎮</div>
+              <div className="step-text">PLAY</div>
+            </div>
+            <div className="flow-arrow">→</div>
+            <div className="flow-step">
+              <div className="step-icon">⚡</div>
+              <div className="step-text">EARN XP</div>
+            </div>
+            <div className="flow-arrow">→</div>
+            <div className="flow-step">
+              <div className="step-icon">🔄</div>
+              <div className="step-text">CONVERT</div>
+            </div>
+            <div className="flow-arrow">→</div>
+            <div className="flow-step">
+              <div className="step-icon">💎</div>
+              <div className="step-text">ZRX</div>
+            </div>
+            <div className="flow-arrow">→</div>
+            <div className="flow-step">
+              <div className="step-icon">🏦</div>
+              <div className="step-text">USE / STAKE</div>
+            </div>
+          </div>
+        </div>
+
         {/* Dual Economy: XP Balance */}
         <div className="os-panel xp-panel">
           <div className="panel-header">
@@ -125,6 +158,7 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
         }
 
         .id-panel { grid-column: 1 / -1; }
+        .flow-panel { grid-column: 1 / -1; }
         .xp-panel { grid-column: 1 / 2; }
         .zrx-panel { grid-column: 2 / 3; }
         .conversion-panel { grid-column: 1 / -1; }
@@ -154,6 +188,12 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
         .balance-actions { display: flex; gap: 16px; margin-top: 16px; }
         .cyber-btn.sm { padding: 8px 16px; font-size: 0.75rem; }
 
+        .flow-container { display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 16px 0; }
+        .flow-step { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; flex: 1; }
+        .step-icon { width: 48px; height: 48px; border-radius: 50%; background: rgba(138, 43, 226, 0.1); border: 1px solid var(--neon-purple); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 0 15px rgba(138, 43, 226, 0.2); }
+        .step-text { font-size: 0.85rem; font-family: var(--font-mono); color: #fff; font-weight: bold; letter-spacing: 1px; }
+        .flow-arrow { color: rgba(255,255,255,0.2); font-size: 1.5rem; margin: 0 8px; }
+
         .conversion-ui { display: flex; align-items: center; gap: 24px; background: rgba(0,0,0,0.4); padding: 24px; border-radius: var(--radius-md); border: 1px dashed rgba(255,255,255,0.1); }
         .conv-input-group { flex: 1; display: flex; flex-direction: column; gap: 8px; }
         .conv-input-group label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); }
@@ -173,6 +213,8 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
           .cyber-btn.sm.warning { margin-left: 0 !important; margin-top: 16px; }
           .conversion-ui { flex-direction: column; align-items: stretch; }
           .conv-arrow { align-self: center; transform: rotate(90deg); }
+          .flow-container { flex-direction: column; gap: 16px; }
+          .flow-arrow { transform: rotate(90deg); margin: 8px 0; }
         }
       `}</style>
     </div>
