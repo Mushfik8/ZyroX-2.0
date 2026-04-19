@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import pitchDeck from '../assets/ZyroX-PITCH-DECK.pdf'
+import whitepaper from '../assets/Whitepaper_v1.0.pdf'
 
 export default function AboutDocs() {
   return (
@@ -111,11 +112,11 @@ export default function AboutDocs() {
             <div className="doc-card">
               <div className="doc-icon">📄</div>
               <div className="doc-info">
-                <h4>WHITEPAPER V1.2</h4>
+                <h4>WHITEPAPER V1.0</h4>
                 <p>Comprehensive protocol architecture, game mechanics, and vision.</p>
-                <div className="doc-meta"><span>PDF</span><span>4.2 MB</span></div>
+                <div className="doc-meta"><span>PDF</span><span>0.24 MB</span></div>
               </div>
-              <button className="cyber-btn sm">DOWNLOAD</button>
+              <a href={whitepaper} download="ZyroX-Whitepaper-v1.0.pdf" className="cyber-btn sm" style={{ textAlign: 'center' }}>DOWNLOAD</a>
             </div>
             <div className="doc-card">
               <div className="doc-icon">📊</div>
