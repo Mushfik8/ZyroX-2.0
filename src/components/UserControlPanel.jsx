@@ -146,6 +146,64 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
           </button>
         </div>
 
+        {/* Live Preview: Play & Earn */}
+        <div className="os-panel preview-panel">
+          <div className="panel-header">
+            <span className="panel-tag" style={{ color: 'var(--neon-green)' }}>LIVE PROTOCOL PREVIEW</span>
+            <button className="cyber-btn sm" onClick={() => setActiveView('play')}>LAUNCH APP</button>
+          </div>
+          <div className="preview-content">
+            <div className="preview-card">
+              <div className="preview-icon">🎯</div>
+              <div className="preview-info">
+                <h4>DATA NODE DEFENSE</h4>
+                <p>Protect network nodes from intrusion. Earn XP per successful wave.</p>
+              </div>
+              <div className="preview-reward">+500 XP</div>
+            </div>
+            <div className="preview-card">
+              <div className="preview-icon">🧩</div>
+              <div className="preview-info">
+                <h4>ALGORITHM DECRYPTION</h4>
+                <p>Solve cryptographic puzzles to unlock bonus multiplier.</p>
+              </div>
+              <div className="preview-reward">+250 XP</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tokenomics Preview */}
+        <div className="os-panel mini-tokenomics-panel">
+          <div className="panel-header">
+            <span className="panel-tag" style={{ color: 'var(--neon-orange)' }}>TOKEN ECONOMY</span>
+            <button className="cyber-btn sm" onClick={() => setActiveView('about')}>FULL DOCS</button>
+          </div>
+          <div className="mini-tok-content">
+            <div className="tok-stat">
+              <span>TOKEN</span>
+              <strong>$ZRX</strong>
+            </div>
+            <div className="tok-stat">
+              <span>TYPE</span>
+              <strong>UTILITY & GOVERNANCE</strong>
+            </div>
+            <div className="tok-stat">
+              <span>SUPPLY</span>
+              <strong>1,000,000,000</strong>
+            </div>
+          </div>
+          <div className="mini-tok-bars">
+            <div className="tok-bar-row">
+              <span className="bar-label">COMMUNITY / P2E (40%)</span>
+              <div className="bar-bg"><div className="bar-fill" style={{ width: '40%', background: 'var(--neon-cyan)' }}></div></div>
+            </div>
+            <div className="tok-bar-row">
+              <span className="bar-label">LIQUIDITY (20%)</span>
+              <div className="bar-bg"><div className="bar-fill" style={{ width: '20%', background: 'var(--neon-purple)' }}></div></div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <style>{`
@@ -162,6 +220,8 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
         .xp-panel { grid-column: 1 / 2; }
         .zrx-panel { grid-column: 2 / 3; }
         .conversion-panel { grid-column: 1 / -1; }
+        .preview-panel { grid-column: 1 / 2; }
+        .mini-tokenomics-panel { grid-column: 2 / 3; }
 
         .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
         .panel-tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; }
@@ -206,9 +266,26 @@ export default function UserControlPanel({ walletAddress, connectWallet, disconn
         .mt-4 { margin-top: 24px; }
         .cyber-btn.loading { opacity: 0.7; border-color: var(--neon-orange); color: var(--neon-orange); pointer-events: none; animation: pulse 1s infinite; }
 
+        .preview-content { display: flex; flex-direction: column; gap: 12px; }
+        .preview-card { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.02); padding: 16px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05); }
+        .preview-icon { font-size: 2rem; }
+        .preview-info h4 { color: #fff; font-size: 0.9rem; margin-bottom: 4px; }
+        .preview-info p { color: var(--text-dim); font-size: 0.75rem; line-height: 1.4; }
+        .preview-reward { font-family: var(--font-mono); color: var(--neon-green); font-weight: bold; font-size: 0.9rem; margin-left: auto; white-space: nowrap; }
+
+        .mini-tok-content { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .tok-stat { display: flex; flex-direction: column; gap: 4px; }
+        .tok-stat span { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); }
+        .tok-stat strong { font-family: var(--font-mono); font-size: 0.9rem; color: #fff; }
+        .mini-tok-bars { display: flex; flex-direction: column; gap: 12px; }
+        .tok-bar-row { display: flex; flex-direction: column; gap: 4px; }
+        .bar-label { font-family: var(--font-mono); font-size: 0.7rem; color: #fff; }
+        .bar-bg { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 4px; }
+
         @media (max-width: 900px) {
           .control-grid { grid-template-columns: 1fr; }
-          .xp-panel, .zrx-panel { grid-column: 1 / -1; }
+          .xp-panel, .zrx-panel, .preview-panel, .mini-tokenomics-panel { grid-column: 1 / -1; }
           .id-details { flex-direction: column; align-items: flex-start; }
           .cyber-btn.sm.warning { margin-left: 0 !important; margin-top: 16px; }
           .conversion-ui { flex-direction: column; align-items: stretch; }
