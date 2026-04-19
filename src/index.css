@@ -147,9 +147,10 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-d
 }
 
 .os-nav-item.active::before {
-  content: ''; position: absolute; left: -18px; top: 50%; transform: translateY(-50%);
-  width: 4px; height: 24px; background: var(--neon-cyan); border-radius: 2px;
+  content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 100%; background: var(--neon-cyan);
   box-shadow: 0 0 10px var(--neon-cyan);
+  z-index: 2;
 }
 
 /* Tooltips */

@@ -35,19 +35,42 @@ export default function OSSidebar({ activeView, setActiveView }) {
         </div>
 
         <style>{`
+          .mobile-overlay { display: none; }
+          .mobile-overlay.open { display: flex; }
+
           @media (min-width: 769px) {
+            .mobile-overlay { display: none !important; }
             .os-sidebar { width: 220px; align-items: stretch; padding: 24px 16px; }
-            .os-nav-item { width: 100%; justify-content: flex-start; padding: 0 16px; gap: 12px; }
+            .os-nav-item { 
+              width: 100%; 
+              height: 50px;
+              justify-content: flex-start; 
+              padding: 0 16px; 
+              gap: 16px; 
+              margin-bottom: 8px;
+            }
             .os-nav-item::after { display: none; }
-            .os-nav-item::before { left: 0; height: 100%; width: 3px; }
+            .os-nav-item::before { 
+              left: -16px; 
+              height: 100%; 
+              width: 4px; 
+              border-radius: 0 4px 4px 0;
+            }
             .os-nav-bottom { align-items: stretch; }
-            .os-nav-item svg { min-width: 20px; }
-            .os-socials { flex-direction: row !important; justify-content: center; }
-            .os-socials .os-nav-item { width: 44px; padding: 0; justify-content: center; }
+            .os-nav-item svg { width: 22px; height: 22px; min-width: 22px; }
+            .os-socials { flex-direction: row !important; justify-content: center; padding: 16px 8px !important; }
+            .os-socials .os-nav-item { width: 44px; height: 44px; padding: 0; justify-content: center; margin-bottom: 0; }
             
-            /* Add label text for desktop expanded sidebar */
-            .os-nav-item::before { content: ''; position: absolute; }
-            .os-nav-item::after { display: none; }
+            .os-nav { 
+              overflow-y: auto; 
+              overflow-x: hidden;
+              padding-right: 4px;
+            }
+            .os-nav::-webkit-scrollbar { width: 4px; }
+            .os-nav::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.2); border-radius: 2px; }
+            .os-nav::-webkit-scrollbar-thumb:hover { background: var(--neon-cyan); }
+            
+            .brand-text { display: block !important; }
           }
         `}</style>
 
