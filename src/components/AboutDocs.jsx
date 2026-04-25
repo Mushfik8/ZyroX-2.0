@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import pitchDeck from '../assets/ZyroX-PITCH-DECK.pdf'
 import whitepaper from '../assets/Whitepaper_v1.0.pdf'
 
 export default function AboutDocs() {
@@ -125,7 +124,7 @@ export default function AboutDocs() {
                 <p>Investor overview, market analysis, and growth strategy.</p>
                 <div className="doc-meta"><span>PDF</span><span>6.72 MB</span></div>
               </div>
-              <a href={pitchDeck} download="ZyroX-PITCH-DECK.pdf" className="cyber-btn sm" style={{ textAlign: 'center' }}>DOWNLOAD</a>
+              <a href="/zyrox-pitch-deck.pdf" target="_blank" rel="noopener noreferrer" className="cyber-btn sm" style={{ textAlign: 'center' }}>View Pitch Deck</a>
             </div>
             <div className="doc-card">
               <div className="doc-icon">🔐</div>
