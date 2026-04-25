@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { AuthProvider, useAuth } from './contexts/AuthContext'
 import OSSidebar from './components/OSSidebar'
 import UserControlPanel from './components/UserControlPanel'
 import TaskMatrix from './components/TaskMatrix'
@@ -15,11 +16,16 @@ import SecurityProtocol from './components/SecurityProtocol'
 import SupportCenter from './components/SupportCenter'
 import SystemBoot from './components/SystemBoot'
 import AboutDocs from './components/AboutDocs'
+import CampaignHub from './components/CampaignHub'
+import LoginModal from './components/LoginModal'
 
-export default function App() {
+function AppContent() {
   const [booting, setBooting] = useState(true)
   const [activeView, setActiveView] = useState('control')
   const [walletAddress, setWalletAddress] = useState('')
+  const [showLogin, setShowLogin] = useState(false)
+
+  const { user } = useAuth()
 
   const connectWallet = () => setWalletAddress('0x4F9...A1B2')
   const disconnectWallet = () => setWalletAddress('')
@@ -28,10 +34,28 @@ export default function App() {
     return <SystemBoot onBootComplete={() => setBooting(false)} />
   }
 
+  // Auth-gated views — if user tries to access without login, show modal
+  const gatedViews = ['tasks', 'play']
+
+  const handleViewChange = (view) => {
+    if (gatedViews.includes(view) && !user) {
+      setShowLogin(true)
+      return
+    }
+    setActiveView(view)
+  }
+
   // View Router
   const renderView = () => {
+    // Double-check gating for direct renders
+    if (gatedViews.includes(activeView) && !user) {
+      setShowLogin(true)
+      return <UserControlPanel walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} setActiveView={handleViewChange} />
+    }
+
     switch (activeView) {
-      case 'control': return <UserControlPanel walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} setActiveView={setActiveView} />
+      case 'control': return <UserControlPanel walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} setActiveView={handleViewChange} />
+      case 'campaigns': return <CampaignHub setActiveView={handleViewChange} />
       case 'tasks': return <TaskMatrix />
       case 'play': return <PlayToEarn />
       case 'staking': return <StakingVault />
@@ -44,7 +68,7 @@ export default function App() {
       case 'security': return <SecurityProtocol />
       case 'support': return <SupportCenter />
       case 'about': return <AboutDocs />
-      default: return <UserControlPanel walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} setActiveView={setActiveView} />
+      default: return <UserControlPanel walletAddress={walletAddress} connectWallet={connectWallet} disconnectWallet={disconnectWallet} setActiveView={handleViewChange} />
     }
   }
 
@@ -52,7 +76,7 @@ export default function App() {
     <div className="os-layout">
       <div className="os-grid-bg" />
       
-      <OSSidebar activeView={activeView} setActiveView={setActiveView} />
+      <OSSidebar activeView={activeView} setActiveView={handleViewChange} />
       
       <main className="os-main-view">
         <AnimatePresence mode="wait">
@@ -68,7 +92,17 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
-      
+
+      {/* Login Modal */}
+      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   )
 }
