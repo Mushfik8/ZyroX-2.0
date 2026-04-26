@@ -44,7 +44,7 @@ export default function AboutDocs() {
             </div>
             <div className="info-item">
               <span className="info-label">BLOCKCHAIN</span>
-              <span className="info-value">ETHEREUM / L2 (TBA)</span>
+              <span className="info-value">BNB Smart Chain (BSC)</span>
             </div>
             <div className="info-item">
               <span className="info-label">PROTOCOL STATUS</span>
