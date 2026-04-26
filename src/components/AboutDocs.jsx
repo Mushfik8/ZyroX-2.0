@@ -126,26 +126,45 @@ export default function AboutDocs() {
               </div>
               <a href="/zyrox-pitch-deck.pdf" target="_blank" rel="noopener noreferrer" className="cyber-btn sm" style={{ textAlign: 'center' }}>View Pitch Deck</a>
             </div>
-            <div className="doc-card">
-              <div className="doc-icon">🔐</div>
-              <div className="doc-info">
-                <h4>AUDIT REPORT</h4>
-                <p>Smart contract security analysis by CertiK.</p>
-                <div className="doc-meta" style={{ color: 'var(--neon-orange)' }}><span>PENDING</span></div>
+          </div>
+        </div>
+
+        {/* F. Fundraising Details */}
+        <div className="os-panel fundraising-panel premium-glow">
+          <div className="panel-header">
+            <span className="panel-tag" style={{ color: 'var(--neon-green)', fontSize: '0.85rem' }}>BACKING & VALUATION</span>
+          </div>
+          <div className="fundraising-matrix">
+            <div className="fund-item premium-card">
+              <span className="fund-label">SEED ROUND</span>
+              <span className="fund-value">Raised <span className="highlight-green">$1M</span> at <span className="highlight-cyan">$10M</span> valuation</span>
+            </div>
+            <div className="fund-item premium-card">
+              <span className="fund-label">TGE FDV</span>
+              <span className="fund-value highlight-green massive-text">$100M</span>
+            </div>
+          </div>
+          <div className="fund-investors premium-banner">
+            <div className="investor-content">
+              <span className="investor-label">LEAD BACKER</span>
+              <div className="investor-name">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--neon-green)" strokeWidth="2" style={{ filter: 'drop-shadow(0 0 5px rgba(0,255,102,0.5))' }}>
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+                </svg>
+                SKYLAND VENTURES
               </div>
-              <button className="cyber-btn sm" disabled>UNAVAILABLE</button>
             </div>
           </div>
         </div>
 
-        {/* F. Social & Transparency */}
+        {/* G. Social & Transparency */}
         <div className="social-transparency-container">
           <div className="os-panel social-panel">
             <div className="panel-header">
               <span className="panel-tag">TRANSMISSION CHANNELS</span>
             </div>
             <div className="social-grid">
-              <a href="https://x.com/zyro_x_gaming" target="_blank" rel="noreferrer" className="social-btn">
+              <a href="https://x.com/zyrox_finance" target="_blank" rel="noreferrer" className="social-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
                 <span>X (TWITTER)</span>
               </a>
@@ -229,7 +248,7 @@ export default function AboutDocs() {
         .dist-color { width: 12px; height: 12px; border-radius: 2px; }
 
         .docs-panel { grid-column: 1 / -1; }
-        .doc-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .doc-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .doc-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--tr); }
         .doc-card:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.02); transform: translateY(-2px); }
         .doc-icon { font-size: 2rem; margin-bottom: 8px; }
@@ -237,6 +256,22 @@ export default function AboutDocs() {
         .doc-info p { font-size: 0.8rem; color: var(--text-dim); line-height: 1.4; margin-bottom: 12px; min-height: 36px; }
         .doc-meta { display: flex; gap: 12px; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); margin-bottom: 16px; }
         .doc-meta span { background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px; }
+
+        .premium-glow { position: relative; border-color: rgba(0, 255, 102, 0.2); box-shadow: 0 0 40px rgba(0, 255, 102, 0.05) inset; overflow: hidden; }
+        .premium-glow::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,255,102,0.03) 0%, transparent 60%); pointer-events: none; }
+        .fundraising-panel { grid-column: 1 / -1; padding: 32px; }
+        .fundraising-matrix { display: flex; gap: 24px; margin-bottom: 24px; }
+        .fund-item.premium-card { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 28px; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,255,102,0.03) 100%); border: 1px solid rgba(0,255,102,0.1); border-radius: var(--radius-lg); transition: all 0.3s ease; }
+        .fund-item.premium-card:hover { border-color: rgba(0,255,102,0.3); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,255,102,0.08); }
+        .fund-label { font-family: var(--font-mono); font-size: 0.85rem; color: var(--neon-cyan); letter-spacing: 2px; }
+        .fund-value { font-family: var(--font-display); font-size: 1.5rem; color: #fff; line-height: 1.2; }
+        .massive-text { font-size: 3rem; line-height: 1; }
+        .highlight-green { color: var(--neon-green); text-shadow: 0 0 15px rgba(0,255,102,0.4); }
+        .highlight-cyan { color: var(--neon-cyan); text-shadow: 0 0 15px rgba(0,240,255,0.4); }
+        .premium-banner { position: relative; padding: 24px; background: linear-gradient(90deg, rgba(0,255,102,0.1) 0%, rgba(0,255,102,0.02) 100%); border-radius: var(--radius-md); border-left: 4px solid var(--neon-green); overflow: hidden; }
+        .investor-content { display: flex; flex-direction: column; gap: 6px; position: relative; z-index: 1; }
+        .investor-label { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); letter-spacing: 2px; }
+        .investor-name { display: flex; align-items: center; gap: 14px; font-family: var(--font-display); font-size: 2rem; color: #fff; font-weight: bold; letter-spacing: 1px; }
 
         .social-transparency-container { grid-column: 1 / -1; display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
         
@@ -265,9 +300,12 @@ export default function AboutDocs() {
           .flow-arrow { transform: rotate(90deg); margin: 8px 0; }
           .dist-list { grid-template-columns: 1fr; }
           .doc-cards { grid-template-columns: 1fr; }
+          .fundraising-matrix { flex-direction: column; }
           .social-transparency-container { grid-template-columns: 1fr; }
           .social-grid { grid-template-columns: 1fr; }
           .brand-title { font-size: 2.5rem; }
+          .massive-text { font-size: 2.2rem; }
+          .investor-name { font-size: 1.5rem; }
         }
       `}</style>
     </div>
