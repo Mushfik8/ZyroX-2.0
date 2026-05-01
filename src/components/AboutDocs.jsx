@@ -150,8 +150,8 @@ export default function AboutDocs() {
                 <span style={{ fontSize: '1.5rem', filter: 'none' }}>🏦</span>
                 Investors & Backing
               </div>
-              <span className="investor-label" style={{ fontSize: '0.9rem', textTransform: 'none', letterSpacing: '0.5px', color: 'rgba(255,255,255,0.8)', marginTop: '6px' }}>
-                ZyroX is backed by leading venture capital support, including <strong style={{ color: 'var(--neon-green)' }}>Skyland Ventures</strong>.
+              <span className="investor-label" style={{ fontSize: '0.9rem', textTransform: 'none', letterSpacing: '0.5px', color: 'rgba(255,255,255,0.8)', marginTop: '6px', lineHeight: '1.5' }}>
+                ZyroX is backed by leading VCs and institutional investors, including: <strong style={{ color: 'var(--neon-green)' }}>Vantec Angel Network, Mantella Venture Partners, Inovia Capital, Backed VC, Skyland Ventures, B Strategy, and more</strong>.
               </span>
             </div>
           </div>
