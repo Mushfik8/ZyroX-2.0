@@ -146,13 +146,13 @@ export default function AboutDocs() {
           </div>
           <div className="fund-investors premium-banner">
             <div className="investor-content">
-              <span className="investor-label">LEAD BACKER</span>
-              <div className="investor-name">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--neon-green)" strokeWidth="2" style={{ filter: 'drop-shadow(0 0 5px rgba(0,255,102,0.5))' }}>
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
-                </svg>
-                SKYLAND VENTURES
+              <div className="investor-name" style={{ fontSize: '1.3rem', gap: '10px' }}>
+                <span style={{ fontSize: '1.5rem', filter: 'none' }}>🏦</span>
+                Investors & Backing
               </div>
+              <span className="investor-label" style={{ fontSize: '0.9rem', textTransform: 'none', letterSpacing: '0.5px', color: 'rgba(255,255,255,0.8)', marginTop: '6px' }}>
+                ZyroX is backed by leading venture capital support, including <strong style={{ color: 'var(--neon-green)' }}>Skyland Ventures</strong>.
+              </span>
             </div>
           </div>
         </div>
