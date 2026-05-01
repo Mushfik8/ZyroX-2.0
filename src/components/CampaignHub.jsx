@@ -28,7 +28,7 @@ export default function CampaignHub({ setActiveView }) {
   const { user, userData } = useAuth()
   const [copied, setCopied] = useState(false)
 
-  const leaderboardCount = 543
+  const leaderboardCount = 1000
   const maxSpots = 1000
   const spotsLeft = maxSpots - leaderboardCount
   const fillPercent = (leaderboardCount / maxSpots) * 100
